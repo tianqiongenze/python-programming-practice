@@ -1,0 +1,8 @@
+# 临时与同步脚本目录
+_sync/
+# Office 临时文件
+~$*
+*.tmp
+# 系统文件
+Thumbs.db
+Desktop.ini
