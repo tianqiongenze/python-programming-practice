@@ -54,14 +54,14 @@ def p11():
 
 
 def p12():
-    """模板交付参考: 见 学生代码框架/p12_template.py (即参考实现)"""
-    print("P1.2 参考实现即 p12_template.py; pylint评分示例: 9.1/10")
+    """模板交付参考: 见 学生代码框架/W02_template.py (即参考实现)"""
+    print("P1.2 参考实现即 W02_template.py; pylint评分示例: 9.1/10")
 
 
 def p21():
     import pandas as pd
 
-    df = pd.read_csv("p21_raw.csv")
+    df = pd.read_csv("W03_raw.csv")
     log = [f"加载 {len(df)} 行"]
     log.append(f"temp缺失 {df.temp.isna().sum()}")
 
@@ -121,7 +121,8 @@ def p22():
             (spectrum(x, fs)[0] * spectrum(x, fs)[1]).sum() / spectrum(x, fs)[1].sum(),
         "spec_var": lambda x, fs: spectrum(x, fs)[1].var(),
         "bandwidth": lambda x, fs:
-            spectrum(x, fs)[0][spectrum(x, fs)[1] > spectrum(x, fs)[1].max() / 2].ptp(),
+            (lambda hi: hi.max() - hi.min())(
+            spectrum(x, fs)[0][spectrum(x, fs)[1] > spectrum(x, fs)[1].max() / 2]),
         "entropy": lambda x, fs: -np.nansum(
             (p := np.abs(x) / np.abs(x).sum()) * np.log(p + 1e-12)),
     }
@@ -142,8 +143,21 @@ def p33():
 
 def p41():
     """端到端最小参考(单源)——完整三线程见starter骨架补全"""
+    import subprocess
+    import sys
+    import os
+    import atexit
+    import time as _t
     from pymodbus.client import ModbusTcpClient as Client
-    c = Client("127.0.0.1", 5020)
+    base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    mod_srv = os.path.join(os.path.dirname(base), "02-程序设计基础",
+                           "虚拟产线", "mini_modbus_server.py")
+    if os.path.exists(mod_srv):
+        p_ = subprocess.Popen([sys.executable, mod_srv, "5020", "1"],
+                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        atexit.register(p_.terminate)
+        _t.sleep(1.5)
+    c = Client(host="127.0.0.1", port=5020)
     c.connect()
     rr = c.read_holding_registers(address=0, count=5)
     vals = rr.registers
@@ -153,7 +167,7 @@ def p41():
 
 def p55():
     from sqlalchemy import create_engine, select, func
-    from sqlalchemy.orm import DeclarativeBase, Session, relationship
+    from sqlalchemy.orm import DeclarativeBase, Session
     from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String
     import datetime
     import random

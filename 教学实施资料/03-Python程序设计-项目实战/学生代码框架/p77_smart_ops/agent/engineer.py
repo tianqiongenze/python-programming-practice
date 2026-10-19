@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# [教学脚手架] 下列导入/变量供 TODO 完成后使用，故标注 noqa 而非删除
 """运维智能体（ReAct循环）：思考→选工具→观察→…→结论
 
 角色设定：两江智造集团"值班工程师小郑"——
@@ -7,7 +8,7 @@
 """
 import json
 
-from agent import llm, tools
+from agent import llm, tools  # noqa: F401
 
 SYSTEM = ("你是两江智造集团设备智能运维中心的值班工程师。"
           "收到设备问题后，按需调用工具取证：台账→时序→影响路径→相似案例→模型诊断，"
@@ -16,7 +17,7 @@ MAX_STEPS = 8
 
 
 def investigate(question: str) -> dict:
-    messages = [{"role": "system", "content": SYSTEM},
+    messages = [{"role": "system", "content": SYSTEM},  # noqa: F841
                 {"role": "user", "content": question}]
     trace = []
     for step in range(1, MAX_STEPS + 1):

@@ -5,7 +5,7 @@
 """
 from datetime import datetime
 
-from sqlalchemy import (JSON, Column, DateTime, Float, ForeignKey, Integer,
+from sqlalchemy import (JSON, Column, DateTime, ForeignKey, Integer,
                         String, create_engine, select)
 from sqlalchemy.orm import DeclarativeBase, Session, relationship
 

@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
+# [教学脚手架] 下列导入/变量供 TODO 完成后使用，故标注 noqa 而非删除
 """存储引擎① 关系型：SQLAlchemy 2.0 + SQLite（WAL）——设备台账/测点/告警单
 
 单独运行: /opt/anaconda3/bin/python -m stores.relational
 """
 from datetime import datetime
 
-from sqlalchemy import (JSON, Column, DateTime, Float, ForeignKey, Integer,
+from sqlalchemy import (JSON, Column, DateTime, Float, ForeignKey, Integer,  # noqa: F401
                         String, create_engine, select)
 from sqlalchemy.orm import DeclarativeBase, Session, relationship
 

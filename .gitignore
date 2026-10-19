@@ -6,3 +6,35 @@ _sync/
 # 系统文件
 Thumbs.db
 Desktop.ini
+
+# ---- 91轮 同步03课程时补充 ----
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+output/
+# 03 包根目录运行残留（非教学资料，勿入库）
+03-Python程序设计-项目实战/buffer.db
+03-Python程序设计-项目实战/warehouse.db
+03-Python程序设计-项目实战/ref_warehouse.db
+03-Python程序设计-项目实战/clean.csv
+03-Python程序设计-项目实战/p21_raw.csv
+03-Python程序设计-项目实战/daily_report.html
+03-Python程序设计-项目实战/features.npy
+03-Python程序设计-项目实战/labels.npy
+03-Python程序设计-项目实战/model_v1.joblib
+03-Python程序设计-项目实战/学生代码框架/buffer.db
+03-Python程序设计-项目实战/学生代码框架/clean.csv
+
+教学实施资料/03-Python程序设计-项目实战/buffer.db
+教学实施资料/03-Python程序设计-项目实战/warehouse.db
+教学实施资料/03-Python程序设计-项目实战/ref_warehouse.db
+教学实施资料/03-Python程序设计-项目实战/clean.csv
+教学实施资料/03-Python程序设计-项目实战/p21_raw.csv
+教学实施资料/03-Python程序设计-项目实战/daily_report.html
+教学实施资料/03-Python程序设计-项目实战/features.npy
+教学实施资料/03-Python程序设计-项目实战/labels.npy
+教学实施资料/03-Python程序设计-项目实战/model_v1.joblib
+教学实施资料/03-Python程序设计-项目实战/学生代码框架/buffer.db
+教学实施资料/03-Python程序设计-项目实战/学生代码框架/clean.csv

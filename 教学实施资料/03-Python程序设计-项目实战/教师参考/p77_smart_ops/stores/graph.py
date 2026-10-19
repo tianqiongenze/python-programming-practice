@@ -71,7 +71,9 @@ def impact_path(device_id: str) -> dict:
 
 
 if __name__ == "__main__":
-    import json, shutil, os
+    import json
+    import shutil
+    import os
     if os.path.isdir(KUZU_DIR):
         shutil.rmtree(KUZU_DIR)          # 演示可重复（0.11为单文件库，两种都兼容）
     elif os.path.exists(KUZU_DIR):

@@ -18,7 +18,7 @@ def synth(n=2000, seed=7):
     y = rng.binomial(1, 0.4, n)
     X[y == 1, 0] += rng.uniform(1.5, 2.5, (y == 1).sum())   # 均值抬升
     X[y == 1, 1] += rng.uniform(1.0, 2.0, (y == 1).sum())   # 峰值抬升
-    X[y == 1, 2] += rng.uniform(0.05, 0.15, (y == 1).sum()) # 斜率抬升
+    X[y == 1, 2] += rng.uniform(0.05, 0.15, (y == 1).sum())  # 斜率抬升
     return X, y
 
 
